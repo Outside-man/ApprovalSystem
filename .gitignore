@@ -51,3 +51,7 @@ fabric.properties
 *.iml
 out
 gen
+
+# Config
+config/DataSourceConfig.xml
+config/MailConfig.xml
