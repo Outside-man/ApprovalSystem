@@ -1,0 +1,14 @@
+nav {
+  background-color: #404040;
+  height: 90px; }
+  nav .nav-left {
+    margin-left: 10%;
+    line-height: 90px; }
+    nav .nav-left li {
+      float: left;
+      margin-right: 70px;
+      color: #c1bdba; }
+    nav .nav-left .on {
+      color: #FFF; }
+
+/*# sourceMappingURL=nav.css.map */

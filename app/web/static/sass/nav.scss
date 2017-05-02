@@ -1,0 +1,16 @@
+nav{
+  background-color: #404040;
+  height: 90px;
+  .nav-left{
+    margin-left: 10%;
+    line-height: 90px;
+    li{
+      float: left;
+      margin-right: 70px;
+      color:#c1bdba;
+    }
+    .on{
+      color:#FFF;
+    }
+  }
+}
