@@ -16,7 +16,6 @@ define('CORE', TuanZ.'core/');
 define('APP', TuanZ.'app/');
 define('PHP', APP.'php/');
 define('CONFIG', TuanZ.'config/');
-define('MODEL', PHP.'model/');
 define('WEB', APP.'web/');
 define('VIEW', WEB.'views/');
 define('_STATIC_', '/'.WEB.'static/');

@@ -17,7 +17,7 @@ class applyFormController extends \core\lib\BaseController {
     public function commitClubActivity(){
         $formClubActivityService = new app\php\service\FormClubActivityService();
         $isSuccess = $formClubActivityService->commitForm($_POST['club'], $this->getCurrentUser(),$_POST['activityName'],
-            $_POST['activityPlace'], $_POST['activityTime'], $_POST['activityPeople'], $_POST['isApplyFine'], $_POST['activityInfo']);
+            $_POST['activityPlace'], $_POST['activityTime'], $_POST['activityPeople'], $_POST['isApplyFine'], $_POST['activityInfo'], $_POST['applySelfMoney'], $_POST['applyCommonMoney']);
         if($isSuccess){
             $form = $formClubActivityService->getById($formClubActivityService->getLastId());
             $statusClubActivityService = new app\php\service\StatusClubActivityService();

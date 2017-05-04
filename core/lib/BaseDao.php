@@ -25,8 +25,7 @@ class BaseDao{
     public function delete_one_by_one_condition($tableName, $condition, $val){
         try {
             $sql = \DataBase::getConn()->prepare('delete from ' . $tableName . ' where ' . $condition . ' = :val');
-            $sql->execute(array(':val' => $val));
-            return true;
+            return $sql->execute(array(':val' => $val));
         }catch (\Exception $e){
             return false;
         }
@@ -46,5 +45,12 @@ class BaseDao{
         $sql->execute(array(':val'=>$val));
         $result = $sql->fetchAll();
         return $result;
+    }
+    public function update_one_column_by_one_condition($tableName, $column, $value, $condition, $val){
+        $sql = \DataBase::getConn()->prepare('update '.$tableName.' set '.$column.'=:value where '.$condition.'=:val');
+        return $sql->execute(array(
+            ':value' => $value,
+            ':val' => $val
+        ));
     }
 }
