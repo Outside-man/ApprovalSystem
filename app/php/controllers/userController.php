@@ -47,10 +47,12 @@ class userController extends \core\lib\BaseController {
                 return;
             }
         }
+        $clubService = new \app\php\service\ClubService();
         $user = $this->getCurrentUser();
+        $clubInfo = $clubService->getClubByUserId($this->getCurrentUser()['id']);
         $this->assign('user', $this->getCurrentUser());
-        out($user);
-        if($user['lv']=='4'){
+        $this->assign('clubInfo', $clubInfo);
+        if($user['lv']>1){
             $this->display('user/admin.html');
             return ;
         }

@@ -35,11 +35,41 @@ class approveFormController extends \core\lib\BaseController {
             Header("Location: /user/login");
             return ;
         }else{
-            $statusClubActivityService = new \app\php\service\StatusClubActivityService();
-            $data = $statusClubActivityService->getAll();
-            $this->assinUser();
-            $this->assign('list', $data);
-            $this->display('clubActivity/formList.html');
+            if($user['lv']==4){
+                $statusClubActivityService = new \app\php\service\StatusClubActivityService();
+                $data = $statusClubActivityService->getAll();
+                $this->assinUser();
+                $this->assign('list', $data);
+                $this->display('clubActivity/formList.html');
+            }else {
+                $statusClubActivityService = new \app\php\service\StatusClubActivityService();
+                $data = $statusClubActivityService->getListByNowLv($user['lv']);
+                $this->assinUser();
+                $this->assign('list', $data);
+                $this->display('clubActivity/formList.html');
+            }
         }
+    }
+    public function gotoApproveById(){
+        $approveClubActivityService = new \app\php\service\ApproveClubActivityService();
+        $formClubActivityService = new app\php\service\FormClubActivityService();
+        $data = $formClubActivityService->getById($_GET['id']);
+        $user = $this->getCurrentUser();
+        $comment = $approveClubActivityService->getApproveByLvByFormId($user['lv'], $_GET['id']);
+        $this->assign('user', $user);
+        out($comment);
+        if(!$comment){
+            $this->assign('data', $data);
+            $this->display('clubActivity/clubApprove.html');
+        }else {
+            $this->assign('comment', $comment);
+            $this->assign('data', $data);
+        }
+
+    }
+    public function approveForm(){
+        $approveClubActivityService = new \app\php\service\ApproveClubActivityService();
+        $approveClubActivityService->saveApprove($this->getCurrentUser(), $_POST['is_approve'], $_POST['form_id'] ,$_POST['comment']);
+        $this->ajaxReturn(null, '审核成功', 0);
     }
 }

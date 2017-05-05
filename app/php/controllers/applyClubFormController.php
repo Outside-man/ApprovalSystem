@@ -17,11 +17,11 @@ class applyClubFormController extends \core\lib\BaseController {
     public function commitClubActivity(){
         $formClubActivityService = new app\php\service\FormClubActivityService();
         $isSuccess = $formClubActivityService->commitForm($_POST['club'], $this->getCurrentUser(),$_POST['activityName'],
-            $_POST['activityPlace'], $_POST['activityTime'], $_POST['activityPeople'], $_POST['isApplyFine'], $_POST['activityInfo']);
+            $_POST['activityPlace'], $_POST['activityTime'], $_POST['activityPeople'], $_POST['isApplyFine'], $_POST['activityInfo'], $_POST['applySelfMoney'], $_POST['applyCommonMoney']);
         if($isSuccess){
             $form = $formClubActivityService->getById($formClubActivityService->getLastId());
             $statusClubActivityService = new app\php\service\StatusClubActivityService();
-            if($statusClubActivityService->savestatus($form,13,$this->getCurrentUser())) {
+            if($statusClubActivityService->savestatus($form, $this->getCurrentUser())) {
                 $this->ajaxReturn($_POST, '提交成功', 0);
                 return;
             }else{

@@ -14,8 +14,8 @@ class ClubService{
     function __construct(){
         self::$clubDao = new \app\php\dao\ClubDao();
     }
-    public function getClubById($id){
-        return self::$clubDao->selectClubByUserId($id);
+    public function getClubByUserId($userId){
+        return self::$clubDao->selectClubByUserId($userId);
     }
     public function changeMoneyById($change, $id){
         return self::$clubDao->updateMoneyById($change, $id);

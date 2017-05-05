@@ -4,6 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="Content-Style-Type" content="text/css">
     <meta name="generator" content="Aspose.Words for .NET 15.1.0.0">
+    <script type="text/javascript" src="<?php echo _STATIC_; ?>js/jquery.js"></script>
     <title>asussss</title></head>
 <body>
 <div><p style="margin:0pt; orphans:0; text-align:center; widows:0"><span
@@ -207,5 +208,41 @@
     </table>
     <p style="font-size:12pt; line-height:150%; margin:0pt; orphans:0; text-align:justify; text-indent:24pt; widows:0">
         <span style="font-family:Calibri; font-size:12pt">&nbsp;</span></p></div>
+<div style="border-collapse:collapse;margin:0 auto; width:426.85pt">
+    <form action="/index/login" method="post">
+        <p>意见</p><textarea id="comment" type="text"></textarea><br>
+        <button type="button"  id="agree-btn">同意</button>
+        <button type="button"  id="disgree-btn">否决</button>
+    </form>
+</div>
+<script>
+    $("#agree-btn").click(function () {
+        var comment = $("#comment").val();
+            var data={
+                "comment":comment,
+                "is_approve":1,
+                "form_id":<?php echo $data['id'] ?>
+            };
+        console.log(data);
+            $.ajax({
+                type: "POST",
+                url: "/approveForm/approveForm/id/dddddd",
+                data: data,
+                dataType:"json",
+                success: function(data){
+                    if(data.status==0){
+                        $(location).attr('href',"/user/login");
+                        alert(data.info);
+                    }
+                    else {
+                        alert('wrong');
+                    }
+                },
+                error: function(data){
+                    alert('Error');
+                }
+            });
+    }) ;
+</script>
 </body>
 </html>

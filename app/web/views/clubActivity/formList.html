@@ -10,7 +10,7 @@
 <h2>欢迎你，<?php echo $user['real_name']; ?></h2>
 <ul>
     <?php forEach($list as $key){ ?>
-    <a href="/approveForm/getClubActivityById/id/<?php echo $key['form_id'] ?>"><li>【<?php echo $key['status']?>】社团活动申请表</li></a>
+    <li><a href="/approveForm/getClubActivityById/id/<?php echo $key['form_id'] ?>">【<?php echo $key['status']?>】社团活动申请表</a>/<a href="/approveForm/gotoApproveById/id/<?php echo $key['form_id'] ?>">【审核】</a></li>
     <?php } ?>
 </ul>
 <script>

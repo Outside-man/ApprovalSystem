@@ -34,7 +34,7 @@ class FormClubActivityDao extends \core\lib\BaseDao {
                     ':is_apply_fine' => $isApplyFine,
                     ':activity_info' => $activityInfo,
                     ':apply_self_money' => $applySelfMoney,
-                    ':apply_common_monet' => $applyCommonMoney
+                    ':apply_common_money' => $applyCommonMoney
                 ));
             }else{
                 throw  new \Exception('用户未登录');
