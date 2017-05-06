@@ -17,7 +17,7 @@ class StatusClubActivityService{
     public function getAll(){
         return self::$statusClubActivityDao->selectAll();
     }
-    public function  getById($id){
+    public function getById($id){
         return self::$statusClubActivityDao->selectById($id);
     }
     public function savestatus($form, $user){
@@ -28,5 +28,12 @@ class StatusClubActivityService{
     }
     public function getListByNowLv($approveLv){
         return self::$statusClubActivityDao->selectByNowLv($approveLv);
+    }
+    public function changeApproveLvByFormId($user, $formId){
+        if($user['lv']<4) {
+            return self::$statusClubActivityDao->updateLvByFormId($user['lv'] + 1, $formId);
+        }else{
+            return false;
+        }
     }
 }

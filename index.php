@@ -40,4 +40,13 @@ session_start();
 
 spl_autoload_register('\core\tuanz::load');
 
+
+//项目中所需的常量
+define('ARR_APPROVE_LV', array(
+    2 => "提交成功",
+    3 => "社联财务审核通过",
+    4 => "社联主席审核通过",
+    5 => "社联指导老师审核通过",
+    6 => "后勤部门审核通过"
+));
 core\tuanz::run();

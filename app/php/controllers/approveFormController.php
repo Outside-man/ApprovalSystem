@@ -35,19 +35,18 @@ class approveFormController extends \core\lib\BaseController {
             Header("Location: /user/login");
             return ;
         }else{
-            if($user['lv']==4){
                 $statusClubActivityService = new \app\php\service\StatusClubActivityService();
                 $data = $statusClubActivityService->getAll();
                 $this->assinUser();
-                $this->assign('list', $data);
+                $this->assign('statusList', $data);
                 $this->display('clubActivity/formList.html');
-            }else {
-                $statusClubActivityService = new \app\php\service\StatusClubActivityService();
-                $data = $statusClubActivityService->getListByNowLv($user['lv']);
-                $this->assinUser();
-                $this->assign('list', $data);
-                $this->display('clubActivity/formList.html');
-            }
+//            }else {
+//                $statusClubActivityService = new \app\php\service\StatusClubActivityService();
+//                $data = $statusClubActivityService->getListByNowLv($user['lv']);
+//                $this->assinUser();
+//                $this->assign('list', $data);
+//                $this->display('clubActivity/formList.html');
+//            }
         }
     }
     public function gotoApproveById(){
@@ -69,7 +68,12 @@ class approveFormController extends \core\lib\BaseController {
     }
     public function approveForm(){
         $approveClubActivityService = new \app\php\service\ApproveClubActivityService();
-        $approveClubActivityService->saveApprove($this->getCurrentUser(), $_POST['is_approve'], $_POST['form_id'] ,$_POST['comment']);
-        $this->ajaxReturn(null, '审核成功', 0);
+        if($approveClubActivityService->saveApprove($this->getCurrentUser(), $_POST['is_approve'], $_POST['form_id'] ,$_POST['comment'])){
+            $statusClubActivityService = new \app\php\service\StatusClubActivityService();
+            $statusClubActivityService->changeApproveLvByFormId($this->getCurrentUser(), $_POST['form_id']);
+            $this->ajaxReturn(null, '审核成功', 0);
+            return ;
+        }
+        $this->ajaxReturn(null, '审核异常', 1);
     }
 }
