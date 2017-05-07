@@ -47,4 +47,8 @@ class StatusClubActivityDao extends \core\lib\BaseDao {
     public function updateLvByFormId($lv, $formId){
         return $this->update_one_column_by_one_condition('b_status_club_activity', 'approve_lv', $lv, 'form_id', $formId);
     }
+    public function updateStatusByFormId($status, $formId){
+        return $this->update_one_column_by_one_condition('b_status_club_activity', 'status', $status, 'form_id', $formId);
+
+    }
 }

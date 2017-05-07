@@ -36,6 +36,8 @@ include CORE.'tuanz.php';
 
 include CORE.'lib/DataBase.php';
 
+include CORE.'common/tools.php';
+
 session_start();
 
 spl_autoload_register('\core\tuanz::load');
@@ -48,5 +50,10 @@ define('ARR_APPROVE_LV', array(
     4 => "社联主席审核通过",
     5 => "社联指导老师审核通过",
     6 => "后勤部门审核通过"
+));
+define('FORM_STATUS', array(
+    0 => "审核中",
+    1 => "已通过",
+    2 => "未通过"
 ));
 core\tuanz::run();

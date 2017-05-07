@@ -15,6 +15,13 @@ class ApproveClubActivityService{
         self::$approveClubActivityDao = new \app\php\dao\ApproveClubActivityDao();
     }
     public function saveApprove($user, $isApprove, $formId, $comment){
+        if($user['lv']==4) {
+            $statusClubActivityDao = new \app\php\dao\StatusClubActivityDao();
+            if ($isApprove == 1)
+                $statusClubActivityDao->updateStatusByFormId(1, $formId);
+            if ($isApprove == 0)
+                $statusClubActivityDao->updateStatusByFormId(2, $formId);
+        }
         return self::$approveClubActivityDao->insert($user, $isApprove, $formId, $comment);
     }
     public function getListApproveByLv($user){
@@ -22,5 +29,8 @@ class ApproveClubActivityService{
     }
     public function getApproveByLvByFormId($lv, $formId){
         return self::$approveClubActivityDao->selectByLvByFormId($lv, $formId);
+    }
+    public function getApproveByFormId($formId){
+        return self::$approveClubActivityDao->selectByFormId($formId);
     }
 }

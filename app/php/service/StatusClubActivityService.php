@@ -30,7 +30,7 @@ class StatusClubActivityService{
         return self::$statusClubActivityDao->selectByNowLv($approveLv);
     }
     public function changeApproveLvByFormId($user, $formId){
-        if($user['lv']<4) {
+        if($user['lv']<=4) {
             return self::$statusClubActivityDao->updateLvByFormId($user['lv'] + 1, $formId);
         }else{
             return false;
