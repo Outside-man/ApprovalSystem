@@ -40,4 +40,8 @@ class BaseController{
     public function ajaxReturn($data, $info, $status){
         echo json_encode(array('data'=>$data, 'info'=>$info, 'status'=>$status));
     }
+    public function assinConstant(){
+        self::assign('ARR_APPROVE_LV', json_decode(ARR_APPROVE_LV, true));
+        self::assign('FORM_STATUS', json_decode(FORM_STATUS, true));
+    }
 }
