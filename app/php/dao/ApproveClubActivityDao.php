@@ -37,4 +37,7 @@ class ApproveClubActivityDao extends \core\lib\BaseDao {
         }
         return $result;
     }
+    public function selectByFormId($formId){
+        return $this->select_all_by_one_condition('b_approve_club_activity', 'form_id', $formId);
+    }
 }

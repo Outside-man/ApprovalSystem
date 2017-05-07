@@ -34,7 +34,7 @@ class applyClubFormController extends \core\lib\BaseController {
         $statusClubActivityService = new \app\php\service\StatusClubActivityService();
         $data = $statusClubActivityService->getListByUserId($user['id']);
         $this->assinUser();
-        $this->assign('list', $data);
+        $this->assign('statusList', $data);
         $this->display('clubActivity/formList.html');
     }
 }

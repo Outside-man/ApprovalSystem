@@ -22,9 +22,9 @@
     <p>面向对象及人数</p><input id="activity_people" type="text">
     <p>是否申请优质社团</p><input id="is_apply_fine" type="text">
     <p>活动简介</p><textarea id="activity_info"></textarea>
-    <p>当前社费金额</p><input id="now_self_money" type="text">
+    <p>当前社费金额</p><input value="<?php echo $clubInfo['money']; ?>"  id="now_self_money" type="text">
     <p>使用社费</p><input id="apply_self_money" type="text">
-    <p>当前社联金额</p><input value="<?php echo $clubInfo['money']; ?>" id="now_common_money" type="text">
+    <p>当前社联金额</p><input id="now_common_money" type="text">
     <p>申请使用社联费用</p><input id="apply_common_money" type="text">
     <button type="button"  id="apply-btn">提交</button>
 </form>

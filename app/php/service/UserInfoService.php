@@ -21,4 +21,8 @@ class UserInfoService{
     public function getUserInfoById($id){
         return self::$userInfoDao->selectById($id);
     }
+    public function getRealNameById($id){
+        $user = self::$userInfoDao->selectById($id);
+        return $user['real_name'];
+    }
 }
