@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>用户中心</title>
-    <link rel="stylesheet" href="<?php echo _STATIC_; ?>css/nav.css">
     <link rel="stylesheet" href="<?php echo _STATIC_; ?>css/tabset.css">
     <link rel="stylesheet" href="<?php echo _STATIC_; ?>css/base.css">
     <link rel="stylesheet" href="<?php echo _STATIC_; ?>css/common.css">
@@ -29,9 +28,9 @@
             </div>
             <div class="sub-child">
                 <ul>
-                    <li class="sub-item">申请</li>
-                    <li class="sub-item">查看</li>
-                    <li class="sub-item">option3</li>
+                    <li class="sub-item" id="form-appli">申请</li>
+                    <li class="sub-item" id="form-view">查看</li>
+                    <li class="sub-item" id="form-manage">管理</li>
                 </ul>
             </div>
             <div class="sub-ft sub-item">
@@ -60,7 +59,7 @@
                 Welcome~
             </div>
             <div class="content-body">
-                content
+                <?php echo $user['lv']; ?>
             </div>
         </div>
     </content>

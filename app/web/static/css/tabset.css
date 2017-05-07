@@ -32,4 +32,8 @@ content {
     min-height: 400px;
     padding: 20px; }
 
+/* style cover */
+#form-manage {
+  display: none; }
+
 /*# sourceMappingURL=tabset.css.map */

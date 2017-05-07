@@ -53,10 +53,10 @@ class userController extends \core\lib\BaseController {
         $this->assign('user', $this->getCurrentUser());
         $this->assign('clubInfo', $clubInfo);
         if($user['lv']>1){
-            $this->display('user/admin.html');
+            $this->display('user/index.html');
             return ;
         }
-        $this->display('user/user.html');
+        $this->display('user/index.html');
         return ;
     }
     public function logout(){
