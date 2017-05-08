@@ -12,7 +12,7 @@ class indexController extends \core\lib\BaseController {
             Header("Location: /user/login");
             return ;
         }
-        $this->display('index/index.html');
+        $this->display('index/login.html');
     }
     public function mail(){
         $mail = new \core\lib\mail();

@@ -7,7 +7,6 @@
 </head>
 <body>
 <h1>社团活动申请表</h1>
-<h2>欢迎你，<?php echo $user['real_name']; ?></h2>
 <ul>
     <?php forEach($statusList as $key){ ?>
     <li><a href="/approveForm/getClubActivityById/id/<?php echo $key['form_id'] ?>">【<?php echo $FORM_STATUS[$key['status']].'/'.$ARR_APPROVE_LV[$key['approve_lv']].'】'.$key['activity_name']?></a>

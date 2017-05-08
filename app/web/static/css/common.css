@@ -1,0 +1,25 @@
+/* nav */
+nav {
+  background-color: #404040;
+  height: 90px;
+  line-height: 90px; }
+  nav a:hover, nav a:visited, nav a:link, nav a:active {
+    color: #c1bdba; }
+  nav li {
+    color: #c1bdba;
+    width: 140px;
+    text-align: center; }
+  nav li:hover {
+    background-color: #5c5a5d; }
+  nav .nav-right {
+    margin-right: 10%; }
+    nav .nav-right li {
+      float: right; }
+  nav .nav-left {
+    margin-left: 10%; }
+    nav .nav-left li {
+      float: left; }
+  nav .on {
+    color: #FFF; }
+
+/*# sourceMappingURL=common.css.map */
