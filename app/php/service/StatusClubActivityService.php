@@ -24,10 +24,15 @@ class StatusClubActivityService{
         return self::$statusClubActivityDao->insert($form, $user);
     }
     public function getListByUserId($formUserId){
-        return self::$statusClubActivityDao->selectByFormUserId($formUserId);
-    }
-    public function getListByNowLv($approveLv){
-        return self::$statusClubActivityDao->selectByNowLv($approveLv);
+        $statusList = self::$statusClubActivityDao->selectByFormUserId($formUserId);
+        $formClubActivityDao = new \app\php\dao\FormClubActivityDao();
+        if(is_array($statusList)) {
+            forEach($statusList as &$key){
+                $form = $formClubActivityDao->selectById($key['form_id']);
+                $key['activity_name'] = $form['activity_name'];
+            }
+        }
+        return $statusList;
     }
     public function changeApproveLvByFormId($user, $formId){
         if($user['lv']<=4) {
@@ -35,5 +40,16 @@ class StatusClubActivityService{
         }else{
             return false;
         }
+    }
+    public function getListFormByLv($user){
+        $statusList = self::$statusClubActivityDao->selectListFormByLv($user['lv']);
+        $formClubActivityDao = new \app\php\dao\FormClubActivityDao();
+        if(is_array($statusList)) {
+            forEach($statusList as &$key){
+                $form = $formClubActivityDao->selectById($key['form_id']);
+                $key['activity_name'] = $form['activity_name'];
+            }
+        }
+        return $statusList;
     }
 }

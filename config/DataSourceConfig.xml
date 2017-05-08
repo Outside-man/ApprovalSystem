@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <mysql-config>
-    <!--mysql服务器地址-->
     <host>    </host>
     <!--数据库地址-->
     <dbname>    </dbname>

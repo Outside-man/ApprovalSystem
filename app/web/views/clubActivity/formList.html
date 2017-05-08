@@ -1,18 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>formList</title>
-    <script type="text/javascript" src="<?php echo _STATIC_; ?>js/jquery.js"></script>
-</head>
-<body>
-<h1>社团活动申请表</h1>
-<h2>欢迎你，<?php echo $user['real_name']; ?></h2>
 <ul>
     <?php forEach($statusList as $key){ ?>
-    <li><a href="/approveForm/getClubActivityById/id/<?php echo $key['form_id'] ?>">【<?php echo $FORM_STATUS[$key['status']].'/'.$ARR_APPROVE_LV[$key['approve_lv']]?>】社团活动申请表</a>
+    <li><a class="left" target="_blank" href="/approveForm/getClubActivityById/id/<?php echo $key['form_id'] ?>">【<?php echo $FORM_STATUS[$key['status']].'/'.$ARR_APPROVE_LV[$key['approve_lv']]?>】社团活动申请表</a>
+
         <?php if($key['approve_lv']<=$user['lv']){
-        echo "/<a href=".'"'."/approveForm/gotoApproveById/id/".$key['form_id'].'"'.">【审核】</a>";
+        echo "<a target=".'"_blank"'."  class=".'"tab-btn"'." href=".'"'."/approveForm/gotoApproveById/id/".$key['form_id'].'"'.">审核</a>";
         }?>
     </li>
     <?php } ?>
@@ -55,7 +46,3 @@
         });
     }) ;
 </script>
-<a href="/user/logout">退出登录</a>
-
-</body>
-</html>

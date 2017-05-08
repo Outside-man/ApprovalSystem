@@ -18,7 +18,8 @@ content {
   .sub-nav .sub-child {
     display: none; }
   .sub-nav .sub-item:hover {
-    background-color: #ecf7fd; }
+    background-color: #ecf7fd;
+    cursor: pointer; }
 
 .sub-content {
   width: 80%;
@@ -31,5 +32,11 @@ content {
     margin: 20px;
     min-height: 400px;
     padding: 20px; }
+    .sub-content .content-body li {
+      border-bottom: solid 1px #ececec;
+      height: 50px;
+      line-height: 50px; }
+      .sub-content .content-body li a:hover, .sub-content .content-body li a:visited, .sub-content .content-body li a:link, .sub-content .content-body li a:active {
+        color: #5c5a5d; }
 
 /*# sourceMappingURL=tabset.css.map */

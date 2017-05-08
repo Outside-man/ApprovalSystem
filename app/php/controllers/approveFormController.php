@@ -75,7 +75,7 @@ class approveFormController extends \core\lib\BaseController {
             return ;
         }else{
             $statusClubActivityService = new \app\php\service\StatusClubActivityService();
-            $data = $statusClubActivityService->getAll();
+            $data = $statusClubActivityService->getListFormByLv($user);
             $this->assinUser();
             $this->assign('statusList', $data);
             $this->assinConstant();
@@ -89,7 +89,6 @@ class approveFormController extends \core\lib\BaseController {
         $user = $this->getCurrentUser();
         $comment = $approveClubActivityService->getApproveByLvByFormId($user['lv'], $_GET['id']);
         $this->assign('user', $user);
-        out($comment);
         if(!$comment){
             $this->assign('data', $data);
             $this->display('clubActivity/clubApprove.html');
