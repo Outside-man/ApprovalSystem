@@ -89,7 +89,6 @@ class approveFormController extends \core\lib\BaseController {
         $user = $this->getCurrentUser();
         $comment = $approveClubActivityService->getApproveByLvByFormId($user['lv'], $_GET['id']);
         $this->assign('user', $user);
-        out($comment);
         if(!$comment){
             $this->assign('data', $data);
             $this->display('clubActivity/clubApprove.html');

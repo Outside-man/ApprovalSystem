@@ -53,6 +53,7 @@ $(function () {
         success: function(r){
             if(r.data>2){
                 $("#form-view").after("<li class='sub-item' id='form-manage'>管理</li>");
+                $("#form-view").hide();
                 $("#form-appli").hide();
                 $("#form-manage").click(function () {
                    $(".content-body").html("");
@@ -73,3 +74,22 @@ $(function () {
         }
     });
 }) ;
+
+
+
+/* club */
+/********************************/
+
+/* application */
+$(function () {
+    $("#form-appli").click(function () {
+       $(".content-body").html("").load("/applyClubForm/applyFormClubActivity");
+    });
+});
+
+/* approval */
+$(function () {
+    $(".approval-entry").click(function () {
+       $(".approval-form").toggle(300);
+    });
+});

@@ -38,5 +38,15 @@ content{
     margin:20px;
     min-height: 400px;
     padding:20px;
+    li{
+      border-bottom: solid 1px #ececec;
+      height: 50px;
+      line-height: 50px;
+      a:hover,a:visited, a:link, a:active{
+        color:#5c5a5d;
+      }
+    }
   }
 }
+
+

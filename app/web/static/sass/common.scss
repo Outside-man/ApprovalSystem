@@ -1,5 +1,9 @@
-
-
+.left{
+  float: left;
+}
+.right{
+  float:right;
+}
 /* nav */
 
 nav{
@@ -33,4 +37,18 @@ nav{
     color:#FFF;
   }
 }
-
+.tab-btn{
+  margin:10px 15px;
+  float:left;
+  display:block;
+  width:100px;
+  height:30px;
+  border:1px solid #CCC;
+  background:#FFF;
+  text-align: center;
+  line-height: 30px;
+}
+.tab-btn:hover{
+  background-color: #ececec;
+  border-color: #ececec;
+}

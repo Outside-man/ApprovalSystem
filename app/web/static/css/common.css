@@ -1,3 +1,9 @@
+.left {
+  float: left; }
+
+.right {
+  float: right; }
+
 /* nav */
 nav {
   background-color: #404040;
@@ -21,5 +27,20 @@ nav {
       float: left; }
   nav .on {
     color: #FFF; }
+
+.tab-btn {
+  margin: 10px 15px;
+  float: left;
+  display: block;
+  width: 100px;
+  height: 30px;
+  border: 1px solid #CCC;
+  background: #FFF;
+  text-align: center;
+  line-height: 30px; }
+
+.tab-btn:hover {
+  background-color: #ececec;
+  border-color: #ececec; }
 
 /*# sourceMappingURL=common.css.map */
