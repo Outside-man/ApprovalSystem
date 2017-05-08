@@ -78,6 +78,7 @@ class approveFormController extends \core\lib\BaseController {
             $data = $statusClubActivityService->getAll();
             $this->assinUser();
             $this->assign('statusList', $data);
+            $this->assinConstant();
             $this->display('clubActivity/formList.html');
         }
     }
