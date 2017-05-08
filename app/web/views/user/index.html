@@ -10,15 +10,19 @@
 <body>
     <nav>
         <ul class="nav-left">
-            <li>
-                信息管理
-            </li>
-            <li class="on">
-                申请管理
-            </li>
-            <li>
-                退出
-            </li>
+            <a href="#">
+                <li>
+                    信息管理
+                </li>
+            </a>
+            <a href="#">
+                <li class="on">
+                    申请管理
+                </li>
+            </a>
+            <a href="/user/logout">
+                <li>退出</li>
+            </a>
         </ul>
     </nav>
     <content>
@@ -30,7 +34,6 @@
                 <ul>
                     <li class="sub-item" id="form-appli">申请</li>
                     <li class="sub-item" id="form-view">查看</li>
-                    <li class="sub-item" id="form-manage">管理</li>
                 </ul>
             </div>
             <div class="sub-ft sub-item">
@@ -56,14 +59,15 @@
         </div>
         <div class="sub-content">
             <div class="content-nav">
-                Welcome~
+                欢迎你，<?php echo $user['real_name']; ?>
             </div>
             <div class="content-body">
-                <?php echo $user['lv']; ?>
+                请根据左侧菜单栏进行操作
             </div>
         </div>
     </content>
 <script src="<?php echo _STATIC_; ?>js/jquery.js"></script>
+<script src="<?php echo _STATIC_; ?>js/main.js"></script>
 <script src="<?php echo _STATIC_; ?>js/tabset.js"></script>
 </body>
 </html>

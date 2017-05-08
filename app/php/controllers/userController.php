@@ -63,4 +63,8 @@ class userController extends \core\lib\BaseController {
         $this->clearCurrentUser();
         Header("Location: /index/index");
     }
+    public function getLv(){
+        $user = $this->getCurrentUser();
+        $this->ajaxReturn($user['lv'], '用户等级', 0);
+    }
 }

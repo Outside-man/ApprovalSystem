@@ -23,7 +23,6 @@ $(function () {
                success: function(data){
                    if(data.status==0){
                        $(location).attr('href',"/user/index");
-                       alert(data.info);
                    }
                    else {
                        alert('wrong');
@@ -47,5 +46,30 @@ $(function () {
 /* tabset  */
 /*******************************************/
 $(function () {
-
-});
+    $.ajax({
+        type: "POST",
+        url: "/user/getLv",
+        dataType:"json",
+        success: function(r){
+            if(r.data>2){
+                $("#form-view").after("<li class='sub-item' id='form-manage'>管理</li>");
+                $("#form-appli").hide();
+                $("#form-manage").click(function () {
+                   $(".content-body").html("");
+                    $.get("/approveForm/listClubActivity",function () {
+                        $(".content-body").load("/approveForm/listClubActivity");
+                   });
+                });
+                //re creat js(because new html code has not events)
+                $(".sub-nav").find("li").click(function () {
+                    $(".sub-nav").find("li").removeClass("on");
+                    $(this).addClass("on");
+                    $(".content-nav").html($(this).parent().parent().prev().html()+"/ "+$(this).html());
+                }) ;
+            }
+        },
+        error: function(data){
+            alert('Error');
+        }
+    });
+}) ;

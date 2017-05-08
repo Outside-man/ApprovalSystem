@@ -18,7 +18,8 @@ content {
   .sub-nav .sub-child {
     display: none; }
   .sub-nav .sub-item:hover {
-    background-color: #ecf7fd; }
+    background-color: #ecf7fd;
+    cursor: pointer; }
 
 .sub-content {
   width: 80%;
@@ -31,9 +32,5 @@ content {
     margin: 20px;
     min-height: 400px;
     padding: 20px; }
-
-/* style cover */
-#form-manage {
-  display: none; }
 
 /*# sourceMappingURL=tabset.css.map */

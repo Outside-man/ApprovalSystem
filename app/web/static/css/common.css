@@ -3,9 +3,14 @@ nav {
   background-color: #404040;
   height: 90px;
   line-height: 90px; }
-  nav li {
-    margin-right: 70px;
+  nav a:hover, nav a:visited, nav a:link, nav a:active {
     color: #c1bdba; }
+  nav li {
+    color: #c1bdba;
+    width: 140px;
+    text-align: center; }
+  nav li:hover {
+    background-color: #5c5a5d; }
   nav .nav-right {
     margin-right: 10%; }
     nav .nav-right li {
@@ -13,8 +18,7 @@ nav {
   nav .nav-left {
     margin-left: 10%; }
     nav .nav-left li {
-      float: left;
-      margin-right: 70px; }
+      float: left; }
   nav .on {
     color: #FFF; }
 

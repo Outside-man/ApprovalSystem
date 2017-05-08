@@ -23,6 +23,7 @@ content{
   }
   .sub-item:hover{
     background-color: #ecf7fd;
+    cursor: pointer;
   }
 }
 .sub-content{
@@ -38,9 +39,4 @@ content{
     min-height: 400px;
     padding:20px;
   }
-}
-
-/* style cover */
-#form-manage{
-  display:none;
 }
