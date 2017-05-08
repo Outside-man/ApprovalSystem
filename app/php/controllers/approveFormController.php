@@ -75,7 +75,7 @@ class approveFormController extends \core\lib\BaseController {
             return ;
         }else{
             $statusClubActivityService = new \app\php\service\StatusClubActivityService();
-            $data = $statusClubActivityService->getAll();
+            $data = $statusClubActivityService->getListFormByLv($user);
             $this->assinUser();
             $this->assign('statusList', $data);
             $this->assinConstant();
