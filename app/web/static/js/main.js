@@ -56,9 +56,11 @@ $(function () {
                 $("#form-view").hide();
                 $("#form-appli").hide();
                 $("#form-manage").click(function () {
-                   $(".content-body").html("");
+                   $(".loading").show();
                     $.get("/approveForm/listClubActivity",function () {
-                        $(".content-body").load("/approveForm/listClubActivity");
+                        $(".content-body").load("/approveForm/listClubActivity",function () {
+                            $(".loading").hide();
+                        });
                    });
                 });
                 //re creat js(because new html code has not events)
