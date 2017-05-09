@@ -121,11 +121,11 @@
             <td colspan="4"
                 style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:top; width:222.2pt">
                 <p style="margin:0pt; orphans:0; text-align:justify; widows:0"><span
-                        style="font-family:宋体; font-size:12pt">剩余自留经费：</span></p>
+                        style="font-family:宋体; font-size:12pt">剩余自留经费：<?php p_array($clubInfo,'self_money'); ?></span></p>
                 <p style="margin:0pt; orphans:0; text-align:justify; widows:0"><span
                         style="font-family:Calibri; font-size:12pt">&nbsp;</span></p>
                 <p style="margin:0pt; orphans:0; text-align:justify; widows:0"><span
-                        style="font-family:宋体; font-size:12pt">剩余社联预留经费：</span></p></td>
+                        style="font-family:宋体; font-size:12pt">剩余社联预留经费：<?php p_array($clubInfo,'reserve_money'); ?></span></p></td>
             <td colspan="3"
                 style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:top; width:182.3pt">
                 <p style="margin:0pt; orphans:0; widows:0"><span
@@ -143,11 +143,11 @@
                 <p style="margin:0pt; orphans:0; text-align:justify; widows:0"><span
                         style="font-family:宋体; font-size:12pt">社联预留经费：</span></p>
                 <p style="margin:0pt; orphans:0; text-align:justify; widows:0"><span
-                        style="font-family:Calibri; font-size:12pt"><?php echo $data['apply_common_money']; ?></span></p></td>
+                        style="font-family:Calibri; font-size:12pt"><?php echo $data['apply_reserve_money']; ?></span></p></td>
             <td colspan="3"
                 style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:top; width:182.3pt">
                 <p style="margin:0pt; orphans:0; widows:0"><span
-                        style="font-family:宋体; font-size:12pt">社联财务负责人签字：</span></p></td>
+                        style="font-family:宋体; font-size:12pt">社联财务负责人签字：<?php p_array($approve_lv_2,'name'); ?></span></p></td>
         </tr>
         <tr style="height:26.95pt">
             <td colspan="7"
@@ -179,22 +179,22 @@
             <td colspan="7"
                 style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:top; width:415.3pt">
                 <p style="margin:0pt 24pt 0pt 0pt; orphans:0; text-align:justify; text-indent:228pt; widows:0"><span
-                        style="font-family:宋体; font-size:12pt">场地审批经办人签字：</span></p></td>
+                        style="font-family:宋体; font-size:12pt">场地审批经办人签字：<?php p_array($approve_lv_3,'name'); ?></span></p></td>
         </tr>
         <tr style="height:41.6pt">
             <td colspan="7"
                 style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:top; width:415.3pt">
-                <p style="margin:0pt; orphans:0; widows:0"><span style="font-family:宋体; font-size:12pt">院社联审批意见</span>
+                <p style="margin:0pt; orphans:0; widows:0"><span style="font-family:宋体; font-size:12pt">院社联审批意见：<?php p_array($approve_lv_3,'comment'); ?></span>
                 </p>
                 <p style="margin:0pt; orphans:0; text-align:justify; text-indent:276pt; widows:0"><span
-                        style="font-family:宋体; font-size:12pt">负责人签字：</span></p></td>
+                        style="font-family:宋体; font-size:12pt">负责人签字：<?php p_array($approve_lv_3,'name'); ?></span></p></td>
         </tr>
         <tr style="height:41.6pt">
             <td colspan="7"
                 style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:top; width:415.3pt">
-                <p style="margin:0pt; orphans:0; widows:0"><span style="font-family:宋体; font-size:12pt">院团委审批意见</span>
+                <p style="margin:0pt; orphans:0; widows:0"><span style="font-family:宋体; font-size:12pt">院团委审批意见：<?php p_array($approve_lv_4,'comment'); ?></span>
                 </p>
-                <p style="margin:0pt; orphans:0; widows:0"><span style="font-family:宋体; font-size:12pt">负责人签字：</span>
+                <p style="margin:0pt; orphans:0; widows:0"><span style="font-family:宋体; font-size:12pt">负责人签字：<?php p_array($approve_lv_4,'name'); ?></span>
                 </p></td>
         </tr>
         <tr style="height:0pt">

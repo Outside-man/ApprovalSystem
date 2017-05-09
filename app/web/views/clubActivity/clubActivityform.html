@@ -93,8 +93,7 @@
                         style="font-family:宋体; font-size:12pt">&nbsp;</span><span
                         style="font-family:宋体; font-size:12pt">是否申请优质社团活动：</span><span
                         style="font-family:宋体; font-size:12pt">&nbsp; </span><span
-                        style="font-family:宋体; font-size:12pt">是</span><span style="font-family:宋体; font-size:12pt">&nbsp;&nbsp;&nbsp;&nbsp; </span><span
-                        style="font-family:宋体; font-size:12pt">否（自行勾选）</span></p></td>
+                        style="font-family:宋体; font-size:12pt"><?php if($form['is_apply_fine']==1)echo '是';else echo '否';?></span><span style="font-family:宋体; font-size:12pt">
         </tr>
         <tr style="height:25.7pt">
             <td colspan="7"
@@ -118,11 +117,11 @@
             <td colspan="4"
                 style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:top; width:222.2pt">
                 <p style="margin:0pt; orphans:0; text-align:justify; widows:0"><span
-                        style="font-family:宋体; font-size:12pt">剩余自留经费：</span></p>
+                        style="font-family:宋体; font-size:12pt">剩余自留经费：<?php if($status==1){echo $form['self_money'];}else{echo $clubInfo['self_money'];} ?></span></p>
                 <p style="margin:0pt; orphans:0; text-align:justify; widows:0"><span
                         style="font-family:Calibri; font-size:12pt">&nbsp;</span></p>
                 <p style="margin:0pt; orphans:0; text-align:justify; widows:0"><span
-                        style="font-family:宋体; font-size:12pt">剩余社联预留经费：</span></p></td>
+                        style="font-family:宋体; font-size:12pt">剩余社联预留经费：<?php if($status==1){echo $form['reserve_money'];}else{echo $clubInfo['reserve_money'];} ?></span></p></td>
             <td colspan="3"
                 style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:top; width:182.3pt">
                 <p style="margin:0pt; orphans:0; widows:0"><span
@@ -138,7 +137,7 @@
                 <p style="margin:0pt; orphans:0; text-align:justify; widows:0"><span
                         style="font-family:宋体; font-size:12pt">社联预留经费：</span></p>
                 <p style="margin:0pt; orphans:0; text-align:justify; widows:0"><span
-                        style="font-family:Calibri; font-size:12pt"><?php echo $form['apply_common_money']; ?></span></p></td>
+                        style="font-family:Calibri; font-size:12pt"><?php echo $form['apply_reserve_money']; ?></span></p></td>
             <td colspan="3"
                 style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:top; width:182.3pt">
                 <p style="margin:0pt; orphans:0; widows:0"><span

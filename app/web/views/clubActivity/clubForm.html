@@ -1,16 +1,15 @@
-
-<form action="" method="post" class="appli-form">
-    <p>申办社团</p><input disabled="disabled" value="<?php echo $clubInfo['club_name']; ?>" id="club" type="text">
+<form action="" method="post">
+    <p>申办社团</p><input value="<?php echo $clubInfo['club_name']; ?>" id="club" type="text">
     <p>活动名称</p><input id="activity_name" type="text">
     <p>活动地点</p><input id="activity_place" type="text">
     <p>活动时间</p><input id="activity_time" type="text">
     <p>面向对象及人数</p><input id="activity_people" type="text">
     <p>是否申请优质社团</p><input id="is_apply_fine" type="text">
     <p>活动简介</p><textarea id="activity_info"></textarea>
-    <p>当前社费金额</p><input disabled="disabled" value="<?php echo $clubInfo['money']; ?>"  id="now_self_money" type="text">
-    <p>使用社费</p><input id="apply_self_money" type="text">
-    <p>当前社联金额</p><input id="now_common_money" type="text">
-    <p>申请使用社联费用</p><input id="apply_common_money" type="text">
+    <p>自留经费</p><input value="<?php echo $clubInfo['self_money']; ?>"  id="now_self_money" type="text">
+    <p>自留经费使用</p><input id="apply_self_money" type="text">
+    <p>预留经费</p><input value="<?php echo $clubInfo['reserve_money']; ?>" id="now_reserve_money" type="text">
+    <p>预留经费使用</p><input id="apply_reserve_money" type="text">
     <button type="button"  id="apply-btn">提交</button>
 </form>
 <script>
@@ -26,7 +25,7 @@
         var is_fine = $("#is_apply_fine").val();
         var act_info = $("#activity_info").val();
         var apply_self_money = $("#apply_self_money").val();
-        var apply_common_money = $("#apply_common_money").val();
+        var apply_reserve_money = $("#apply_reserve_money").val();
         var data={
             "club":club,
             "activityName":act_name,
@@ -36,7 +35,7 @@
             "isApplyFine":is_fine,
             "activityInfo":act_info,
             "applySelfMoney":apply_self_money,
-            "applyCommonMoney":apply_common_money
+            "applyReserveMoney":apply_reserve_money
         };
         console.log(data);
         $.ajax({
@@ -58,3 +57,4 @@
         });
     }) ;
 </script>
+

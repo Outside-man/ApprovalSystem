@@ -54,4 +54,7 @@ class StatusClubActivityDao extends \core\lib\BaseDao {
         $result = $sql->fetchAll();
         return $result;
     }
+    public function deleteByFormId($formId){
+        return $this->delete_one_by_one_condition('b_status_club_activity', 'form_id', $formId);
+    }
 }
