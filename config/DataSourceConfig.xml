@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <mysql-config>
-    <host>    </host>
+    <host>120.25.240.194</host>
     <!--数据库地址-->
-    <dbname>    </dbname>
+    <dbname>xgtw_digital</dbname>
     <!--数据库用户名-->
-    <username>    </username>
+    <username>root</username>
     <!--数据密码-->
-    <password>    </password>
+    <password>tz19961008</password>
 </mysql-config>

@@ -47,6 +47,12 @@ content{
       }
     }
   }
+  .appli-form{
+    input:disabled{
+      background-color: #ececec;
+      border:solid 1px #ececec;
+    }
+  }
 }
 
 

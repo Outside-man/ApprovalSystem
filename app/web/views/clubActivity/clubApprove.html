@@ -238,8 +238,9 @@
                 dataType:"json",
                 success: function(data){
                     if(data.status==0){
-                        $(location).attr('href',"/user/login");
                         alert(data.info);
+                        window.opener=null;
+                        window.close();
                     }
                     else {
                         alert('wrong');
