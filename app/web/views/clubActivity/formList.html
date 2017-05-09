@@ -1,7 +1,6 @@
 <ul>
     <?php forEach($statusList as $key){ ?>
-    <li><a class="left" target="_blank" href="/approveForm/getClubActivityById/id/<?php echo $key['form_id'] ?>">【<?php echo $FORM_STATUS[$key['status']].'/'.$ARR_APPROVE_LV[$key['approve_lv']]?>】社团活动申请表</a>
-
+    <li><a class="left" target="_blank" href="/approveForm/getClubActivityById/id/<?php echo $key['form_id'] ?>">【<?php echo $FORM_STATUS[$key['status']].'/'.$ARR_APPROVE_LV[$key['approve_lv']].'】'.$key['activity_name'];?></a>
         <?php if($key['approve_lv']<=$user['lv']){
         echo "<a target=".'"_blank"'."  class=".'"tab-btn"'." href=".'"'."/approveForm/gotoApproveById/id/".$key['form_id'].'"'.">审核</a>";
         }?>
