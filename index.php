@@ -44,6 +44,7 @@ spl_autoload_register('\core\tuanz::load');
 
 
 //项目中所需的常量
+
 define('ARR_APPROVE_LV', json_encode( array(
     2 => "提交成功",
     3 => "社联财务审核通过",

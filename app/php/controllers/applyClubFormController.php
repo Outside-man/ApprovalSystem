@@ -38,4 +38,11 @@ class applyClubFormController extends \core\lib\BaseController {
         $this->assinConstant();
         $this->display('clubActivity/formList.html');
     }
+    public function applyFormClubActivity(){
+        $clubService = new \app\php\service\ClubService();
+        $clubInfo = $clubService->getClubByUserId($this->getCurrentUser()['id']);
+        $this->assign('user', $this->getCurrentUser());
+        $this->assign('clubInfo', $clubInfo);
+        $this->display("clubActivity/clubForm.html");
+    }
 }
