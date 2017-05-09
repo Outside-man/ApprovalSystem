@@ -17,7 +17,10 @@ class ClubService{
     public function getClubByUserId($userId){
         return self::$clubDao->selectClubByUserId($userId);
     }
-    public function changeMoneyById($change, $id){
-        return self::$clubDao->updateMoneyById($change, $id);
+    public function changeMoneyById($self_money, $reserve_money, $id){
+        return self::$clubDao->updateMoneyById($self_money, $reserve_money, $id);
+    }
+    public function getClubById($id){
+        return self::$clubDao->selectById($id);
     }
 }

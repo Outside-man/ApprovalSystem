@@ -17,8 +17,12 @@ class ApproveClubActivityService{
     public function saveApprove($user, $isApprove, $formId, $comment){
         if($user['lv']==4) {
             $statusClubActivityDao = new \app\php\dao\StatusClubActivityDao();
-            if ($isApprove == 1)
+            $formClubActivityDao = new \app\php\dao\FormClubActivityDao();
+            if ($isApprove == 1) {
                 $statusClubActivityDao->updateStatusByFormId(1, $formId);
+                //TODO 将当前的社团金额存入
+                $formClubActivityDao->updateMoneyFormById($selfMoney, $reserve_money, $formId);
+            }
             if ($isApprove == 0)
                 $statusClubActivityDao->updateStatusByFormId(2, $formId);
         }

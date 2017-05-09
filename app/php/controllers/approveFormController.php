@@ -62,10 +62,14 @@ class approveFormController extends \core\lib\BaseController {
         }
 
         $form = $formClubActivityService->getById($_GET['id']);
+        $clubService = new app\php\service\ClubService();
+        $clubInfo = $clubService->getClubById($form['club_id']);
         $this->assign('approve_lv_2', $approve_lv_2);
         $this->assign('approve_lv_3', $approve_lv_3);
         $this->assign('approve_lv_4', $approve_lv_4);
+        $this->assign('clubInfo', $clubInfo);
         $this->assign('form',$form);
+        $this->assign('status', $_GET['status']);
         $this->display('clubActivity/clubActivityform.html');
     }
     public function listClubActivity(){
@@ -83,20 +87,54 @@ class approveFormController extends \core\lib\BaseController {
         }
     }
     public function gotoApproveById(){
-        $approveClubActivityService = new \app\php\service\ApproveClubActivityService();
         $formClubActivityService = new app\php\service\FormClubActivityService();
+        $approveClubActivityService = new app\php\service\ApproveClubActivityService();
+        $userInfoService = new app\php\service\UserInfoService();
         $data = $formClubActivityService->getById($_GET['id']);
         $user = $this->getCurrentUser();
-        $comment = $approveClubActivityService->getApproveByLvByFormId($user['lv'], $_GET['id']);
+        $approve_pre = $approveClubActivityService->getApproveByFormId($_GET['id']);
         $this->assign('user', $user);
-        if(!$comment){
-            $this->assign('data', $data);
-            $this->display('clubActivity/clubApprove.html');
-        }else {
-            $this->assign('comment', $comment);
-            $this->assign('data', $data);
-        }
+        $clubService = new app\php\service\ClubService();
+        $clubInfo = $clubService->getClubById($data['club_id']);
+        $approve_lv_2 = array();//社联财务
+        $approve_lv_3 = array();//社联主席
+        $approve_lv_4 = array();//指导老师
 
+        if(is_array($approve_pre)) {
+            forEach ($approve_pre as $key){
+                if($key['lv']==2) {
+                    $approve_lv_2 = array(
+                        'lv' => $key['lv'],
+                        'comment' => $key['comment'],
+                        'is_approve' => $key['is_approve'],
+                        'name' => $userInfoService->getRealNameById($key['approve_user_id'])
+                    );
+                }
+                if($key['lv']==3) {
+                    $approve_lv_3 = array(
+                        'lv' => $key['lv'],
+                        'comment' => $key['comment'],
+                        'is_approve' => $key['is_approve'],
+                        'name' => $userInfoService->getRealNameById($key['approve_user_id'])
+                    );
+                }
+                if($key['lv']==4) {
+                    $approve_lv_4 = array(
+                        'lv' => $key['lv'],
+                        'comment' => $key['comment'],
+                        'is_approve' => $key['is_approve'],
+                        'name' => $userInfoService->getRealNameById($key['approve_user_id'])
+                    );
+                }
+
+            }
+        }
+        $this->assign('approve_lv_2', $approve_lv_2);
+        $this->assign('approve_lv_3', $approve_lv_3);
+        $this->assign('approve_lv_4', $approve_lv_4);
+        $this->assign('clubInfo', $clubInfo);
+        $this->assign('data', $data);
+        $this->display('clubActivity/clubApprove.html');
     }
     public function approveForm(){
         $approveClubActivityService = new \app\php\service\ApproveClubActivityService();

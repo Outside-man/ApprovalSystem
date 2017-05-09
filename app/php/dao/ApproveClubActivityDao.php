@@ -23,6 +23,7 @@ class ApproveClubActivityDao extends \core\lib\BaseDao {
     public function selectByLv($lv){
         return $this->select_all_by_one_condition('b_approve_club_activity', 'lv', $lv);
     }
+    //TODO 似乎没用
     public function selectByLvByFormId($lv, $formId){
         try {
             $sql = \DataBase::getConn()->prepare('select * from b_approve_club_activity where lv = :lv and form_id = :form_id');
@@ -39,5 +40,8 @@ class ApproveClubActivityDao extends \core\lib\BaseDao {
     }
     public function selectByFormId($formId){
         return $this->select_all_by_one_condition('b_approve_club_activity', 'form_id', $formId);
+    }
+    public function deleteByFormId($formId){
+        return $this->delete_one_by_one_condition('b_approve_club_activity', 'form_id', $formId);
     }
 }
