@@ -47,4 +47,13 @@ class applyClubFormController extends \core\lib\BaseController {
         $this->assign('clubInfo', $clubInfo);
         $this->display("clubActivity/clubForm.html");
     }
+    public function getClubActivityByUserId(){
+        $statusClubActivityService = new \app\php\service\StatusClubActivityService();
+        $user = $this->getCurrentUser();
+        if($user!=null){
+            $data = $statusClubActivityService->getListByUserId($user['id']);
+            $this->ajaxReturn(json_encode($data), '获取成功', 0);
+            return;
+        }
+    }
 }

@@ -3,6 +3,10 @@
 
 .right {
   float: right; }
+
+.clear {
+  clear: both; }
+
 /* nav */
 nav {
   background-color: #404040;
@@ -41,4 +45,5 @@ nav {
 .tab-btn:hover {
   background-color: #ececec;
   border-color: #ececec; }
+
 /*# sourceMappingURL=common.css.map */

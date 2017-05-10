@@ -138,9 +138,9 @@
                 style="border-bottom-color:#000000; border-bottom-style:solid; border-bottom-width:0.75pt; border-left-color:#000000; border-left-style:solid; border-left-width:0.75pt; border-right-color:#000000; border-right-style:solid; border-right-width:0.75pt; border-top-color:#000000; border-top-style:solid; border-top-width:0.75pt; padding-left:5.03pt; padding-right:5.03pt; vertical-align:top; width:222.2pt">
                 <p style="margin:0pt; orphans:0; text-align:justify; widows:0"><span
                         style="font-family:宋体; font-size:12pt">自留经费：</span></p>
-                <p style="margin:0pt; orphans:0; text-align:justify; widows:0"><span
+                <p style="margin:0pt; orphans:0; text-align:justify; widows:0"><span id="selfmoney"
                         style="font-family:Calibri; font-size:12pt"><?php echo $data['apply_self_money']; ?></span></p>
-                <p style="margin:0pt; orphans:0; text-align:justify; widows:0"><span
+                <p style="margin:0pt; orphans:0; text-align:justify; widows:0"><span id="allmoney"
                         style="font-family:宋体; font-size:12pt">社联预留经费：</span></p>
                 <p style="margin:0pt; orphans:0; text-align:justify; widows:0"><span
                         style="font-family:Calibri; font-size:12pt"><?php echo $data['apply_reserve_money']; ?></span></p></td>
@@ -227,19 +227,23 @@
         var comment = $("#comment").val();
             var data={
                 "comment":comment,
+                "apply_self_money":<?php echo$data['apply_self_money'];?>,
+                "apply_reserve_money":<?php echo$data['apply_reserve_money'];?>,
+                "club_id":<?php echo$clubInfo['id'];?>,
                 "is_approve":1,
-                "form_id":<?php echo $data['id'] ?>
+                "form_id":<?php echo $data['id'];?>
             };
         console.log(data);
             $.ajax({
                 type: "POST",
-                url: "/approveForm/approveForm/id/dddddd",
+                url: "/approveForm/approveForm/",
                 data: data,
                 dataType:"json",
                 success: function(data){
                     if(data.status==0){
-                        $(location).attr('href',"/user/login");
                         alert(data.info);
+                        window.opener=null;
+                        window.close();
                     }
                     else {
                         alert('wrong');
