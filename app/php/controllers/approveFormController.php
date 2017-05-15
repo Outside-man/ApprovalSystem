@@ -90,7 +90,6 @@ class approveFormController extends \core\lib\BaseController {
         $approve_lv_2 = array();//社联财务
         $approve_lv_3 = array();//社联主席
         $approve_lv_4 = array();//指导老师
-
         if(is_array($approve_pre)) {
             forEach ($approve_pre as $key){
                 if($key['lv']==2) {
@@ -117,7 +116,6 @@ class approveFormController extends \core\lib\BaseController {
                         'name' => $userInfoService->getRealNameById($key['approve_user_id'])
                     );
                 }
-
             }
         }
         $this->assign('approve_lv_2', $approve_lv_2);
@@ -129,7 +127,6 @@ class approveFormController extends \core\lib\BaseController {
     }
     public function approveForm(){
         $approveClubActivityService = new \app\php\service\ApproveClubActivityService();
-        //TODO 获取界面传过来 $_POST['club_id'] $_POST['apply_self_money'] $_POST['apply_reserve_money'];
         if($approveClubActivityService->saveApprove($this->getCurrentUser(), $_POST['is_approve'], $_POST['form_id'] ,$_POST['comment'], $_POST['club_id'], $_POST['apply_self_money'], $_POST['apply_reserve_money'])){
             $statusClubActivityService = new \app\php\service\StatusClubActivityService();
             $statusClubActivityService->changeApproveLvByFormId($this->getCurrentUser(), $_POST['form_id']);
