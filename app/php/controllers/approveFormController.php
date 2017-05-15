@@ -127,7 +127,6 @@ class approveFormController extends \core\lib\BaseController {
     }
     public function approveForm(){
         $approveClubActivityService = new \app\php\service\ApproveClubActivityService();
-        //TODO 获取界面传过来 $_POST['club_id'] $_POST['apply_self_money'] $_POST['apply_reserve_money'];
         if($approveClubActivityService->saveApprove($this->getCurrentUser(), $_POST['is_approve'], $_POST['form_id'] ,$_POST['comment'], $_POST['club_id'], $_POST['apply_self_money'], $_POST['apply_reserve_money'])){
             $statusClubActivityService = new \app\php\service\StatusClubActivityService();
             $statusClubActivityService->changeApproveLvByFormId($this->getCurrentUser(), $_POST['form_id']);
