@@ -4,13 +4,19 @@
   top: 30%; }
 
 .approval-entry {
-  float: right;
+  float: top;
   width: 20px;
   height: 60px;
   font-size: 20px;
   padding: 20px;
   background-color: #5c5a5d;
   color: #FFF; }
+
+#club-load {
+  border-top: solid #FFF 1px; }
+
+#club-loadfile {
+  border-top: solid #FFF 1px; }
 
 .approval-entry:hover {
   cursor: pointer;

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>用户中心</title>
-    <link rel="stylesheet" href="<?php echo _STATIC_; ?>css/tabset.css">
+    <link id="tabset-css" rel="stylesheet" href="<?php echo _STATIC_; ?>css/tabset.css">
     <link rel="stylesheet" href="<?php echo _STATIC_; ?>css/base.css">
     <link rel="stylesheet" href="<?php echo _STATIC_; ?>css/common.css">
 </head>
@@ -57,22 +57,23 @@
                 </ul>
             </div>
         </div>
+        <div id='circular' class='loading'>
+            <div id='circular_1' class='circular'></div>
+            <div id='circular_2' class='circular'></div>
+            <div id='circular_3' class='circular'></div>
+            <div id='circular_4' class='circular'></div>
+            <div id='circular_5' class='circular'></div>
+            <div id='circular_6' class='circular'></div>
+            <div id='circular_7' class='circular'></div>
+            <div id='circular_8' class='circular'></div>
+            <div class='clearfix'></div>
+        </div>
         <div class="sub-content">
             <div class="content-nav">
                 欢迎你，<?php echo $user['real_name']; ?>
             </div>
             <div class="content-body">
-                <div id='circular' class="loading">
-                    <div id='circular_1' class='circular'></div>
-                    <div id='circular_2' class='circular'></div>
-                    <div id='circular_3' class='circular'></div>
-                    <div id='circular_4' class='circular'></div>
-                    <div id='circular_5' class='circular'></div>
-                    <div id='circular_6' class='circular'></div>
-                    <div id='circular_7' class='circular'></div>
-                    <div id='circular_8' class='circular'></div>
-                    <div class='clearfix'></div>
-                </div>
+
             </div>
         </div>
     </content>
