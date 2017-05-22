@@ -9,7 +9,7 @@
 class adminController extends \core\lib\BaseController{
     public function index(){
         $adminService = new app\php\service\AdminService();
-        $listUserInfo = $adminService->listUserInfo();
+        $listUserInfo = $adminService->listALLUserInfo();
         $index = 1;
         $currentLv = 0;
         foreach ($listUserInfo as $key){
@@ -21,6 +21,8 @@ class adminController extends \core\lib\BaseController{
             out($index++.$key['real_name']);
         }
     }
-
-
+    public function setPassword(){
+        $adminService = new \app\php\service\AdminService();
+        $adminService->setPasswordUser("1111111", $_GET["id"]);
+    }
 }

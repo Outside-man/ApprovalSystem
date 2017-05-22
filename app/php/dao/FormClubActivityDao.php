@@ -15,12 +15,29 @@ class FormClubActivityDao extends \core\lib\BaseDao {
         return $this->select_one_by_one_condition('b_form_club_activity', 'id', $id);
     }
     public function insert($club, $user, $activityName,
-                           $activityPlace, $activityTime, $activityPeople, $isApplyFine, $activityInfo, $applySelfMoney, $applyReserveMoney, $clubId){
+                           $activityPlace, $activityTime, $activityPeople, $isApplyFine, $activityInfo, $applySelfMoney, $applyReserveMoney, $clubId, $fileId){
         try {
+            out(array(
+                ':apply_date' => date("Y年m月d日"),
+                ':club' => $club,
+                ':chief_name' => $user['real_name'],
+                ':chief_id' => $user['school_id'],
+                ':chief_tel' => $user['tel'],
+                ':activity_name' => $activityName,
+                ':activity_place' => $activityPlace,
+                ':activity_time' => $activityTime,
+                ':activity_people' => $activityPeople,
+                ':is_apply_fine' => $isApplyFine,
+                ':activity_info' => $activityInfo,
+                ':apply_self_money' => $applySelfMoney,
+                ':apply_reserve_money' => $applyReserveMoney,
+                ':club_id' => $clubId,
+                ':file_id'=>$fileId
+            ));
             if(is_array($user)) {
                 $sql = \DataBase::getConn()->prepare('insert into b_form_club_activity 
-            (apply_date, club, chief_name, chief_id, chief_tel, activity_name, activity_place, activity_time, activity_people, is_apply_fine, activity_info, apply_self_money, apply_reserve_money, club_id) 
-            values (:apply_date, :club, :chief_name, :chief_id, :chief_tel, :activity_name, :activity_place, :activity_time, :activity_people, :is_apply_fine, :activity_info, :apply_self_money, :apply_reserve_money, :club_id)');
+            (apply_date, club, chief_name, chief_id, chief_tel, activity_name, activity_place, activity_time, activity_people, is_apply_fine, activity_info, apply_self_money, apply_reserve_money, club_id, file_id) 
+            values (:apply_date, :club, :chief_name, :chief_id, :chief_tel, :activity_name, :activity_place, :activity_time, :activity_people, :is_apply_fine, :activity_info, :apply_self_money, :apply_reserve_money, :club_id, :file_id)');
                 return $sql->execute(array(
                     ':apply_date' => date("Y年m月d日"),
                     ':club' => $club,
@@ -35,7 +52,8 @@ class FormClubActivityDao extends \core\lib\BaseDao {
                     ':activity_info' => $activityInfo,
                     ':apply_self_money' => $applySelfMoney,
                     ':apply_reserve_money' => $applyReserveMoney,
-                    ':club_id' => $clubId
+                    ':club_id' => $clubId,
+                    ':file_id'=>$fileId
                 ));
             }else{
                 throw  new \Exception('用户未登录');

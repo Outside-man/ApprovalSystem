@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0025)http://jxgl.hziee.edu.cn/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=GBK">
+		<title>登录</title>
+		
+		<meta http-equiv="Content-Language" content="gb2312">
+		<meta content="all" name="robots">
+		<meta name="author" content="作者信息">
+		<meta name="Copyright" content="版权信息">
+		<meta name="description" content="站点介绍">
+		<meta name="keywords" content="站点关键词">
+		<link rel="stylesheet" href="./登录_files/jw.css" type="text/css" media="all">
+		<link rel="stylesheet" href="./登录_files/jw(1).css" type="text/css" media="all">
+		<!--[if lte IE 6]><script language="javascript" src="style/js/pngbug.js"></script><![endif]-->
+		<style>
+		.fangshua{
+		color:red;
+		font-size:14px;
+		font-weight:bold;
+		}
+		
+		</style>
+	</head>
+	<body class="login_bg">
+		<form name="form1" method="post" action="http://jxgl.hziee.edu.cn/default2.aspx" id="form1">
+<div>
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKLTY4Mjg3NzI5NGRk+yAaA352cuwlk0iYbcRxiF6UJVc=">
+</div>
+
+<div>
+
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWCgL0h9HvCQLs0bLrBgLs0fbZDAK/wuqQDgKAqenNDQLN7c0VAuaMg+INAveMotMNAoznisYGArursYYIsRYr0nH6eJRR4eD1mC6FIuZeuVY=">
+</div>
+			
+			<div class="login_main">
+				<div class="login_logo"><img src="./登录_files/login_jw.png" alt="学校图标"></div>
+				<div class="login_left"><img class="login_pic" src="./登录_files/login_pic.png"></div>
+				<div class="login_right">
+					<dl>
+						<dt class="uesr">
+							<label>用户名：</label></dt>
+						<dd>
+							<input name="TextBox1" type="text" id="TextBox1" tabindex="1" class="text_nor" style="width:100px;"></dd>
+						<dt class="passw">
+							<label>密　码：</label></dt>
+						<dd>
+							<input name="TextBox2" type="password" id="TextBox2" tabindex="2" class="text_nor" style="width:100px;"></dd>
+						<dt></dt>
+						<div style="CLEAR:both"></div>
+						<dd>
+							<table id="RadioButtonList1" border="0">
+	<tbody><tr>
+		<td><input id="RadioButtonList1_0" type="radio" name="RadioButtonList1" value="部门" tabindex="3"><label for="RadioButtonList1_0">部门</label></td><td><input id="RadioButtonList1_1" type="radio" name="RadioButtonList1" value="教师" tabindex="3"><label for="RadioButtonList1_1">教师</label></td><td><input id="RadioButtonList1_2" type="radio" name="RadioButtonList1" value="学生" checked="checked" tabindex="3"><label for="RadioButtonList1_2">学生</label></td><td><input id="RadioButtonList1_3" type="radio" name="RadioButtonList1" value="访客" tabindex="3"><label for="RadioButtonList1_3">访客</label></td>
+	</tr>
+</tbody></table>
+						</dd>
+						<dt></dt>
+						<dd>
+							<input type="submit" name="Button1" value="" id="Button1" class="btn_dl"><input type="submit" name="Button2" value="" onclick="window.close();" id="Button2" class="btn_cz">
+						</dd>
+						<p>
+							<a href="http://jxgl.hziee.edu.cn/" style="display:none" target="_blank">忘记密码，点此取回</a>
+							
+						</p>
+					</dl>
+				</div>
+				<div class="login_copyright">Copyright &#169; 2009 版权所有ZFSOFT</div>
+			</div>
+		</form>
+	
+
+</body></html>

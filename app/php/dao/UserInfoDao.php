@@ -33,4 +33,19 @@ class UserInfoDao extends \core\lib\BaseDao{
             return false;
         }
     }
+    public function updateUserInfo($userInfo, $id){
+        try {
+            $sql = \DataBase::getConn()->prepare('update b_user_info set real_name =:real_name, school_id =:school_id, lv =:lv, e_mail =:e_mail, tel =:tel  where id =:id');
+            return $sql->execute(array(
+                ':real_name' => $userInfo['real_name'],
+                ':school_id' => $userInfo['school_id'],
+                ':lv' => $userInfo['lv'],
+                ':e_mail' => $userInfo['e_mail'],
+                ':tel' => $userInfo['tel'],
+                ':id' => $id
+            ));
+        }catch(\Exception $e){
+            die($e->getMessage());
+        }
+    }
 }

@@ -15,9 +15,9 @@ class FormClubActivityService{
         self::$formClubActivityDao = new \app\php\dao\FormClubActivityDao();
     }
     public function commitForm($club, $user, $activityName,$activityPlace, $activityTime,
-                               $activityPeople, $isApplyFine, $activityInfo, $applySelfMoney, $applyReserveMoney, $clubId){
+                               $activityPeople, $isApplyFine, $activityInfo, $applySelfMoney, $applyReserveMoney, $clubId, $fileId){
         return self::$formClubActivityDao->insert($club, $user, $activityName, $activityPlace, $activityTime,
-            $activityPeople, $isApplyFine, $activityInfo, $applySelfMoney, $applyReserveMoney, $clubId);
+            $activityPeople, $isApplyFine, $activityInfo, $applySelfMoney, $applyReserveMoney, $clubId, $fileId);
     }
     public function getById($id){
         return self::$formClubActivityDao->selectById($id);

@@ -10,7 +10,7 @@ namespace app\php\dao;
 
 
 class AdminDao extends \core\lib\BaseDao{
-    public function selectByUsername($username){
+    public function selectAdminByUsername($username){
         return $this->select_one_by_one_condition('b_admin', 'username', $username);
     }
 }
