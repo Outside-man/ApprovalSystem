@@ -8,7 +8,7 @@
 
 namespace app\php\service;
 
-class FileService{
+class FileClubActivityService{
     static $fileManage = null;
     static $fileDao = null;
     public function __construct(){
@@ -42,6 +42,9 @@ class FileService{
     }
     public function listAllFile($path){
         return self::$fileManage->list_all_file($path);
+    }
+    public function getLastInsert(){
+        return self::$fileDao->get_last_insert_id('b_file');
     }
 
 }

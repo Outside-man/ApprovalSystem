@@ -135,4 +135,9 @@ class approveFormController extends \core\lib\BaseController {
         }
         $this->ajaxReturn(null, '审核异常', 1);
     }
+    public function downloadFileId(){
+        $id = $_GET['file_id'];
+        $fileClubActivityService = new \app\php\service\FileClubActivityService();
+        echo $fileClubActivityService->downloadFile($id);
+    }
 }

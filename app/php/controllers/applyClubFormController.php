@@ -15,15 +15,18 @@ class applyClubFormController extends \core\lib\BaseController {
         $this->display('index/index.html');
     }
     public function commitClubActivity(){
-        out("FILE:");
-        out($_FILES);
-        return ;
         $formClubActivityService = new app\php\service\FormClubActivityService();
         $clubService = new \app\php\service\ClubService();
         $clubInfo = $clubService->getClubByUserId($this->getCurrentUser()['id']);
-        $isSuccess = $formClubActivityService->commitForm($_POST['club'], $this->getCurrentUser(),$_POST['activityName'],
-            $_POST['activityPlace'], $_POST['activityTime'], $_POST['activityPeople'], $_POST['isApplyFine'], $_POST['activityInfo'], $_POST['applySelfMoney'], $_POST['applyReserveMoney'],$clubInfo['id']);
-        if($isSuccess){
+        $fileId = null;
+        if(isset($_FILES['applyFile'])) {
+            $fileService = new \app\php\service\FileClubActivityService();
+            $fileService->uploadFile($_FILES['applyFile']['tmp_name'], 'ClubActivity/', $_FILES['applyFile']['name']);
+            $fileId = $fileService->getLastInsert()['id'];
+        }
+            $formSuccess = $formClubActivityService->commitForm($clubInfo['club_name'], $this->getCurrentUser(), $_POST['activityName'],
+                $_POST['activityPlace'], $_POST['activityTime'], $_POST['activityPeople'], $_POST['isApplyFine'], $_POST['activityInfo'], $_POST['applySelfMoney'], $_POST['applyReserveMoney'], $clubInfo['id'], $fileId);
+        if($formSuccess){
             $form = $formClubActivityService->getById($formClubActivityService->getLastId());
             $statusClubActivityService = new app\php\service\StatusClubActivityService();
             if($statusClubActivityService->savestatus($form, $this->getCurrentUser())) {
