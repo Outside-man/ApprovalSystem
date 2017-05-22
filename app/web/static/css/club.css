@@ -1,63 +1,81 @@
-/*
-Error: Invalid CSS after "...xt-indent: 10px": expected "{", was ";"
-        on line 70 of club.scss
+.approval-right {
+  position: fixed;
+  right: 0px;
+  top: 30%; }
 
-65:     .form-money{
-66:       input[type='text']{
-67:         width: 35%;
-68:         height: 30px;
-69:
-70:         text-indent: 10px;
-71:       }
-72:       .form-money-input{
-73:         margin-bottom: 15px;
-74:         float:left;
-75:         width: 50%;
+.approval-entry {
+  float: top;
+  width: 20px;
+  height: 60px;
+  font-size: 20px;
+  padding: 20px;
+  background-color: #5c5a5d;
+  color: #FFF; }
 
-Backtrace:
-club.scss:70
-D:/ruby/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.23/lib/sass/scss/parser.rb:1207:in `expected'
-D:/ruby/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.23/lib/sass/scss/parser.rb:1137:in `expected'
-D:/ruby/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.23/lib/sass/scss/parser.rb:1132:in `tok!'
-D:/ruby/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.23/lib/sass/scss/parser.rb:665:in `block'
-D:/ruby/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.23/lib/sass/scss/parser.rb:735:in `declaration_or_ruleset'
-D:/ruby/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.23/lib/sass/scss/parser.rb:685:in `block_child'
-D:/ruby/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.23/lib/sass/scss/parser.rb:677:in `block_contents'
-D:/ruby/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.23/lib/sass/scss/parser.rb:666:in `block'
-D:/ruby/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.23/lib/sass/scss/parser.rb:735:in `declaration_or_ruleset'
-D:/ruby/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.23/lib/sass/scss/parser.rb:685:in `block_child'
-D:/ruby/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.23/lib/sass/scss/parser.rb:674:in `block_contents'
-D:/ruby/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.23/lib/sass/scss/parser.rb:666:in `block'
-D:/ruby/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.23/lib/sass/scss/parser.rb:735:in `declaration_or_ruleset'
-D:/ruby/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.23/lib/sass/scss/parser.rb:685:in `block_child'
-D:/ruby/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.23/lib/sass/scss/parser.rb:677:in `block_contents'
-D:/ruby/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.23/lib/sass/scss/parser.rb:666:in `block'
-D:/ruby/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.23/lib/sass/scss/parser.rb:735:in `declaration_or_ruleset'
-D:/ruby/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.23/lib/sass/scss/parser.rb:685:in `block_child'
-D:/ruby/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.23/lib/sass/scss/parser.rb:677:in `block_contents'
-D:/ruby/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.23/lib/sass/scss/parser.rb:666:in `block'
-D:/ruby/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.23/lib/sass/scss/parser.rb:658:in `ruleset'
-D:/ruby/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.23/lib/sass/scss/parser.rb:684:in `block_child'
-D:/ruby/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.23/lib/sass/scss/parser.rb:677:in `block_contents'
-D:/ruby/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.23/lib/sass/scss/parser.rb:125:in `stylesheet'
-D:/ruby/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.23/lib/sass/scss/parser.rb:41:in `parse'
-D:/ruby/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.23/lib/sass/engine.rb:406:in `_to_tree'
-D:/ruby/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.23/lib/sass/engine.rb:381:in `_render_with_sourcemap'
-D:/ruby/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.23/lib/sass/engine.rb:298:in `render_with_sourcemap'
-D:/ruby/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.23/lib/sass/plugin/compiler.rb:492:in `update_stylesheet'
-D:/ruby/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.23/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
-D:/ruby/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.23/lib/sass/plugin/compiler.rb:209:in `each'
-D:/ruby/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.23/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
-D:/ruby/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.23/lib/sass/plugin.rb:82:in `update_stylesheets'
-D:/ruby/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.23/lib/sass/exec/sass_scss.rb:340:in `watch_or_update'
-D:/ruby/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.23/lib/sass/exec/sass_scss.rb:51:in `process_result'
-D:/ruby/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.23/lib/sass/exec/base.rb:52:in `parse'
-D:/ruby/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.23/lib/sass/exec/base.rb:19:in `parse!'
-D:/ruby/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.23/bin/scss:13:in `<top (required)>'
-D:/ruby/Ruby200-x64/bin/scss:23:in `load'
-D:/ruby/Ruby200-x64/bin/scss:23:in `<main>'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Error: Invalid CSS after \"...xt-indent: 10px\": expected \"{\", was \";\"\A         on line 70 of club.scss\A \A 65:     .form-money{\A 66:       input[type='text']{\A 67:         width: 35%;\A 68:         height: 30px;\A 69: <<<<<<< HEAD\A 70:         text-indent: 10px;\A 71:       }\A 72:       .form-money-input{\A 73:         margin-bottom: 15px;\A 74:         float:left;\A 75:         width: 50%;"; }
+#club-load {
+  border-top: solid #FFF 1px; }
+
+#club-loadfile {
+  border-top: solid #FFF 1px; }
+
+.approval-entry:hover {
+  cursor: pointer;
+  background-color: #aaaaaa; }
+
+.approval-form {
+  width: 200px;
+  float: right;
+  display: none;
+  background-color: #ececec;
+  height: 260px; }
+  .approval-form p {
+    color: #5c5a5d;
+    font-size: 16px;
+    margin: 5px; }
+  .approval-form textarea {
+    outline: none;
+    width: 100%;
+    height: 200px;
+    border: solid #CCCCCC 1px; }
+  .approval-form button {
+    width: 95px; }
+
+.appli-form {
+  width: 100%; }
+  .appli-form .form-inline {
+    margin: 0 auto;
+    width: 100%;
+    clear: both; }
+    .appli-form .form-inline .form-group {
+      position: relative;
+      width: 45%;
+      float: left;
+      margin-bottom: 30px; }
+      .appli-form .form-inline .form-group label {
+        margin: 0 1%; }
+      .appli-form .form-inline .form-group input[type='text'] {
+        width: 70%;
+        height: 30px; }
+    .appli-form .form-inline .form-money input[type='text'] {
+      width: 35%;
+      height: 30px;
+      text-indent: 10px; }
+    .appli-form .form-inline .form-money .form-money-input {
+      margin-bottom: 15px;
+      float: left;
+      width: 50%; }
+    .appli-form .form-inline textarea {
+      width: 70%;
+      height: 120px;
+      margin-left: 77px; }
+    .appli-form .form-inline .areatitle {
+      position: absolute;
+      margin-top: 0; }
+  .appli-form input[type='submit'] {
+    clear: both;
+    display: block;
+    width: 200px;
+    height: 30px;
+    margin-left: 35%; }
+
+/*# sourceMappingURL=club.css.map */

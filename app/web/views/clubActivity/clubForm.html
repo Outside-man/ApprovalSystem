@@ -71,5 +71,9 @@
                $("#apply_reserve_money").val($("#now_reserve_money").val());
            }
         });
+        $(".appli-form").submit(function () {
+           $("#apply_reserve_money").removeAttr('disabled');
+           $(this).submit();
+        });
     });
 </script>
