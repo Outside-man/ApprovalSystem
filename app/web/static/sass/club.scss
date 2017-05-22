@@ -43,3 +43,51 @@
     width:95px;
   }
 }
+.appli-form{
+  width: 100%;
+  .form-inline{
+    margin:0 auto;
+    width: 100%;
+    clear:both;
+    .form-group{
+      position:relative;
+      label{
+        margin:0 1%;
+      }
+      width: 45%;
+      input[type='text']{
+        width: 70%;
+        height: 30px;
+      }
+      float:left;
+      margin-bottom:30px;
+    }
+    .form-money{
+      input[type='text']{
+        width: 35%;
+        height: 30px;
+      }
+      .form-money-input{
+        margin-bottom: 15px;
+        float:left;
+        width: 50%;
+      }
+    }
+    textarea{
+      width: 70%;
+      height: 120px;
+      margin-left: 77px;
+    }
+    .areatitle{
+      position: absolute;
+      margin-top:0;
+    }
+  }
+  input[type='submit']{
+    clear:both;
+    display:block;
+    width:200px;
+    height: 30px;
+    margin-left:35%;
+  }
+}

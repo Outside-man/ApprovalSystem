@@ -11,7 +11,10 @@ namespace app\php\dao;
 
 class UserInfoDao extends \core\lib\BaseDao{
     public function selectAll(){
-        return $this->select_all('b_user_info');
+        $sql = \DataBase::getConn()->prepare('select * from b_user_info order by lv');
+        $sql->execute();
+        $result = $sql->fetchAll();
+        return $result;
     }
     public function selectById($id){
         return $this->select_one_by_one_condition('b_user_info', 'id', $id);
