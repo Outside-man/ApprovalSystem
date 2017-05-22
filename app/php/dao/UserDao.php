@@ -34,4 +34,11 @@ class UserDao extends \core\lib\BaseDao {
     public function delById($id){
         return $this->delete_one_by_one_condition('b_user', 'id',$id);
     }
+    public function updatePasswordById($password, $id){
+        $sql = \DataBase::getConn()->prepare('update b_user set password =:password  where id =:id');
+        return $sql->execute(array(
+            ':password' => $password,
+            ':id' => $id
+        ));
+    }
 }
