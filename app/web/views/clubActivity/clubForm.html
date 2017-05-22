@@ -37,67 +37,39 @@
         </div>
         <div class="form-group form-money">
             <div class="form-money-input">
-                <label>自留经费</label><input disabled="disabled" value="<?php echo $clubInfo['self_money']; ?>"  id="now_self_money" type="text">
+                <label>自留经费:</label><input disabled="disabled" value="<?php echo $clubInfo['self_money']; ?>"  id="now_self_money" type="text">
             </div>
             <div class="form-money-input">
-                <label>自留经费使用</label><input id="apply_self_money" type="text" name="applySelfMoney">
+                <label>自留经费使用:</label><input id="apply_self_money" type="text" name="applySelfMoney" value="0">
             </div>
             <div class="form-money-input">
-                <label>预留经费</label><input disabled="disabled" value="<?php echo $clubInfo['reserve_money']; ?>" id="now_reserve_money" type="text">
+                <label>预留经费:</label><input disabled="disabled" value="<?php echo $clubInfo['reserve_money']; ?>" id="now_reserve_money" type="text">
             </div>
             <div class="form-money-input">
-                <label>预留经费使用</label><input id="apply_reserve_money" type="text" name="applyReserveMoney">
+                <label>预留经费使用:</label><input id="apply_reserve_money" type="text" name="applyReserveMoney" disabled="disabled" value="0">
             </div>
             <label>文件</label><input id="apply_file" type="file" name="applyFile">
         </div>
     </div>
     <input type="submit" value="提交">
 </form>
-<script>
-    $("#my-form-club").click(function () {
-        $(location).attr('href',"/applyClubForm/getListAllForm");
-    }) ;
-//    $("#apply-btn").click(function () {
-//        var club = <?php echo $clubInfo['self_money']; ?>;
-//        var act_name = $("#activity_name").val();
-//        var act_place = $("#activity_place").val();
-//        var act_time = $("#activity_time").val();
-//        var act_people = $("#activity_people").val();
-//        var is_fine = $("#is_apply_fine").val();
-//        var act_info = $("#activity_info").val();
-//        var apply_self_money = $("#apply_self_money").val();
-//        var apply_reserve_money = $("#apply_reserve_money").val();
-//        var data={
-//            "club":club,
-//            "activityName":act_name,
-//            "activityPlace":act_place,
-//            "activityTime":act_time,
-//            "activityPeople":act_people,
-//            "isApplyFine":is_fine,
-//            "activityInfo":act_info,
-//            "applySelfMoney":apply_self_money,
-//            "applyReserveMoney":apply_reserve_money
-//        };
-//        console.log(data);
-//        $.ajax({
-//            type: "POST",
-//            url: "/applyClubForm/commitClubActivity",
-//            data: data,
-//            dataType:"json",
-//            contentType: false,
-//            processData: false,
-//            success: function(data){
-//                if(data.status==0){
-//                    alert(data.info);
-//                }
-//                else {
-//                    alert('wrong');
-//                }
-//            },
-//            error: function(data){
-//                alert('Error');
-//            }
-//        });
-//    }) ;
+<script type="text/javascript">
+    $(function () {
+        $("#apply_self_money").bind('input propertychange',function () {
+           if(parseFloat($("#apply_self_money").val())>=parseFloat($("#now_self_money").val())){
+               $("#apply_reserve_money").val(parseFloat($("#apply_self_money").val())-parseFloat($("#now_self_money").val()));
+               $("#apply_self_money").val($("#now_self_money").val());
+               $("#apply_reserve_money").removeAttr('disabled');
+           }
+           else {
+               $("#apply_reserve_money").attr('disabled','disabled');
+               $("#apply_reserve_money").val("0")
+           }
+        });
+        $("#apply_reserve_money").bind('input propertychange',function () {
+           if(parseFloat($("#apply_reserve_money").val())>parseFloat($("#now_reserve_money").val())) {
+               $("#apply_reserve_money").val($("#now_reserve_money").val());
+           }
+        });
+    });
 </script>
-

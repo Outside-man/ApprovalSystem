@@ -58,7 +58,8 @@
         height: 30px; }
     .appli-form .form-inline .form-money input[type='text'] {
       width: 35%;
-      height: 30px; }
+      height: 30px;
+      text-indent: 10px; }
     .appli-form .form-inline .form-money .form-money-input {
       margin-bottom: 15px;
       float: left;
