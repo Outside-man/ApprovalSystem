@@ -79,14 +79,14 @@
                 dataType:"json",
                 success: function(data){
                     if(data.status==0){
-                        $(location).attr('href',"/user/login");
+                        $(location).attr('href',"/index/index");
                         alert(data.info);
                     }
                     else {
                         alert('wrong');
                     }
                 },
-                error: function(data){
+                error: function(){
                     alert('Error');
                 }
             });
