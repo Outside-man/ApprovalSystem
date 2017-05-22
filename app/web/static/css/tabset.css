@@ -38,9 +38,10 @@ content {
       line-height: 50px; }
       .sub-content .content-body li a:hover, .sub-content .content-body li a:visited, .sub-content .content-body li a:link, .sub-content .content-body li a:active {
         color: #5c5a5d; }
+
   .sub-content .appli-form input:disabled {
-    background-color: #ececec;
-    border: solid 1px #ececec; }
+    background-color: #FFF;
+    border: solid 1px #FFF; }
 
 #circular {
   margin-top: 15px;

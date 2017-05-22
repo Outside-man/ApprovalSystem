@@ -1,60 +1,103 @@
-<form action="" method="post" class="appli-form">
-    <p>申办社团</p><input disabled="disabled" value="<?php echo $clubInfo['club_name']; ?>" id="club" type="text">
-    <p>活动名称</p><input id="activity_name" type="text">
-    <p>活动地点</p><input id="activity_place" type="text">
-    <p>活动时间</p><input id="activity_time" type="text">
-    <p>面向对象及人数</p><input id="activity_people" type="text">
-    <p>是否申请优质社团</p><input id="is_apply_fine" type="text">
-    <p>活动简介</p><textarea id="activity_info"></textarea>
-    <p>自留经费</p><input disabled="disabled" value="<?php echo $clubInfo['self_money']; ?>"  id="now_self_money" type="text">
-    <p>自留经费使用</p><input id="apply_self_money" type="text">
-    <p>预留经费</p><input disabled="disabled" value="<?php echo $clubInfo['reserve_money']; ?>" id="now_reserve_money" type="text">
-    <p>预留经费使用</p><input id="apply_reserve_money" type="text">
-    <button type="button"  id="apply-btn">提交</button>
+<form action="/applyClubForm/commitClubActivity" method="post" class="appli-form" enctype ="multipart/form-data">
+    <div class="form-inline">
+        <div class="form-group">
+            <label>申办社团</label>
+            <input disabled="disabled" value="<?php echo $clubInfo['club_name']; ?>" id="club" type="text" name="club">
+        </div>
+        <div class="form-group">
+            <label>活动名称</label>
+            <input id="activity_name" type="text" name="activityName">
+        </div>
+    </div>
+    <div class="form-inline">
+        <div class="form-group">
+            <label>活动地点</label>
+            <input id="activity_place" type="text" name="activityPlace">
+        </div>
+        <div class="form-group">
+            <label>活动人数</label>
+            <input id="activity_people" type="text" name="activityPeople">
+        </div>
+    </div>
+    <div class="form-inline">
+        <div class="form-group">
+            <label>活动时间</label>
+            <input name="activityTime" placeholder="请输入日期" class="laydate-icon" onClick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})">
+        </div>
+        <div class="form-group">
+            <label>是否申请优质社团</label>
+            <label><input name="isApplyFine" type="radio" value="0">是</label>
+            <label><input name="isApplyFine" type="radio" value="1">否</label>
+        </div>
+    </div>
+    <div class="form-inline">
+        <div class="form-group">
+            <label class="areatitle">活动简介</label>
+            <textarea id="activity_info" name="activityInfo"></textarea>
+        </div>
+        <div class="form-group form-money">
+            <div class="form-money-input">
+                <label>自留经费</label><input disabled="disabled" value="<?php echo $clubInfo['self_money']; ?>"  id="now_self_money" type="text">
+            </div>
+            <div class="form-money-input">
+                <label>自留经费使用</label><input id="apply_self_money" type="text" name="applySelfMoney">
+            </div>
+            <div class="form-money-input">
+                <label>预留经费</label><input disabled="disabled" value="<?php echo $clubInfo['reserve_money']; ?>" id="now_reserve_money" type="text">
+            </div>
+            <div class="form-money-input">
+                <label>预留经费使用</label><input id="apply_reserve_money" type="text" name="applyReserveMoney">
+            </div>
+            <label>文件</label><input id="apply_file" type="file" name="applyFile">
+        </div>
+    </div>
+    <input type="submit" value="提交">
 </form>
 <script>
     $("#my-form-club").click(function () {
         $(location).attr('href',"/applyClubForm/getListAllForm");
     }) ;
-    $("#apply-btn").click(function () {
-        var club = <?php echo $clubInfo['self_money']; ?>;
-        var act_name = $("#activity_name").val();
-        var act_place = $("#activity_place").val();
-        var act_time = $("#activity_time").val();
-        var act_people = $("#activity_people").val();
-        var is_fine = $("#is_apply_fine").val();
-        var act_info = $("#activity_info").val();
-        var apply_self_money = $("#apply_self_money").val();
-        var apply_reserve_money = $("#apply_reserve_money").val();
-        var data={
-            "club":club,
-            "activityName":act_name,
-            "activityPlace":act_place,
-            "activityTime":act_time,
-            "activityPeople":act_people,
-            "isApplyFine":is_fine,
-            "activityInfo":act_info,
-            "applySelfMoney":apply_self_money,
-            "applyReserveMoney":apply_reserve_money
-        };
-        console.log(data);
-        $.ajax({
-            type: "POST",
-            url: "/applyClubForm/commitClubActivity",
-            data: data,
-            dataType:"json",
-            success: function(data){
-                if(data.status==0){
-                    alert(data.info);
-                }
-                else {
-                    alert('wrong');
-                }
-            },
-            error: function(data){
-                alert('Error');
-            }
-        });
-    }) ;
+//    $("#apply-btn").click(function () {
+//        var club = <?php echo $clubInfo['self_money']; ?>;
+//        var act_name = $("#activity_name").val();
+//        var act_place = $("#activity_place").val();
+//        var act_time = $("#activity_time").val();
+//        var act_people = $("#activity_people").val();
+//        var is_fine = $("#is_apply_fine").val();
+//        var act_info = $("#activity_info").val();
+//        var apply_self_money = $("#apply_self_money").val();
+//        var apply_reserve_money = $("#apply_reserve_money").val();
+//        var data={
+//            "club":club,
+//            "activityName":act_name,
+//            "activityPlace":act_place,
+//            "activityTime":act_time,
+//            "activityPeople":act_people,
+//            "isApplyFine":is_fine,
+//            "activityInfo":act_info,
+//            "applySelfMoney":apply_self_money,
+//            "applyReserveMoney":apply_reserve_money
+//        };
+//        console.log(data);
+//        $.ajax({
+//            type: "POST",
+//            url: "/applyClubForm/commitClubActivity",
+//            data: data,
+//            dataType:"json",
+//            contentType: false,
+//            processData: false,
+//            success: function(data){
+//                if(data.status==0){
+//                    alert(data.info);
+//                }
+//                else {
+//                    alert('wrong');
+//                }
+//            },
+//            error: function(data){
+//                alert('Error');
+//            }
+//        });
+//    }) ;
 </script>
 

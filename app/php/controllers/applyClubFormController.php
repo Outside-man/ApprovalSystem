@@ -15,6 +15,9 @@ class applyClubFormController extends \core\lib\BaseController {
         $this->display('index/index.html');
     }
     public function commitClubActivity(){
+        out("FILE:");
+        out($_FILES);
+        return ;
         $formClubActivityService = new app\php\service\FormClubActivityService();
         $clubService = new \app\php\service\ClubService();
         $clubInfo = $clubService->getClubByUserId($this->getCurrentUser()['id']);

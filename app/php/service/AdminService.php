@@ -52,5 +52,4 @@ class AdminService{
         if(self::getUserInfoById($id)==null)die("用户不存在");
         return self::$userInfoDao->updateUserInfo($userInfo,$id);
     }
-
 }
