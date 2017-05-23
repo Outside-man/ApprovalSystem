@@ -66,6 +66,26 @@
                $("#apply_reserve_money").val("0")
            }
         });
+        $("#apply_self_money").focus(function () {
+            if($(this).val()==0){
+                $(this).val("");
+            }
+        });
+        $("#apply_self_money").blur(function () {
+           if($(this).val()==""){
+               $(this).val("0");
+           }
+        });
+        $("#apply_reserve_money").focus(function () {
+            if($(this).val()==0){
+                $(this).val("");
+            }
+        });
+        $("#apply_reserve_money").blur(function () {
+            if($(this).val()==""){
+                $(this).val("0");
+            }
+        });
         $("#apply_reserve_money").bind('input propertychange',function () {
            if(parseFloat($("#apply_reserve_money").val())>parseFloat($("#now_reserve_money").val())) {
                $("#apply_reserve_money").val($("#now_reserve_money").val());
@@ -74,6 +94,7 @@
         $(".appli-form").submit(function () {
            $("#apply_reserve_money").removeAttr('disabled');
            $(this).submit();
+           alert("提交成功");
         });
     });
 </script>

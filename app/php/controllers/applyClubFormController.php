@@ -30,10 +30,11 @@ class applyClubFormController extends \core\lib\BaseController {
             $form = $formClubActivityService->getById($formClubActivityService->getLastId());
             $statusClubActivityService = new app\php\service\StatusClubActivityService();
             if($statusClubActivityService->savestatus($form, $this->getCurrentUser())) {
-                $this->ajaxReturn($_POST, '提交成功', 0);
-                return;
+                Header("Location: /user/login");
+                return ;
             }else{
-                $formClubActivityService->deleteById($formClubActivityService->getLastId());
+                Header("Location: /user/login");
+                return ;
             }
         }
     }
