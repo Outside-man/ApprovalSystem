@@ -84,7 +84,6 @@ class approveFormController extends \core\lib\BaseController {
         $data = $formClubActivityService->getById($_GET['id']);
         $user = $this->getCurrentUser();
         $approve_pre = $approveClubActivityService->getApproveByFormId($_GET['id']);
-        $this->assign('user', $user);
         $clubService = new app\php\service\ClubService();
         $clubInfo = $clubService->getClubById($data['club_id']);
         $approve_lv_2 = array();//社联财务
@@ -123,6 +122,7 @@ class approveFormController extends \core\lib\BaseController {
         $this->assign('approve_lv_4', $approve_lv_4);
         $this->assign('clubInfo', $clubInfo);
         $this->assign('data', $data);
+        $this->assign('user', $user);
         $this->display('clubActivity/clubApprove.html');
     }
     public function approveForm(){

@@ -218,9 +218,9 @@
         <div class="approval-entry" id="club-load">
             下载
         </div>
-        <div class="approval-entry" id="club-loadfile">
+        <a href="/approveForm/downloadFileId/file_id/<?php echo $form['file_id']; ?>"><div class="approval-entry" id="club-loadfile">
             附件
-        </div>
+        </div></a>
     </div>
     <form class="approval-form" action="/index/login" method="post">
         <p>意见</p><textarea id="comment" type="text"></textarea><br>
@@ -230,7 +230,15 @@
 </div>
 <script type="text/javascript" src="<?php echo _STATIC_; ?>js/jquery.js"></script>
 <script type="text/javascript" src="<?php echo _STATIC_; ?>js/main.js"></script>
-<script>
+<script type="text/javascript">
+        $(function () {
+            if(<?php echo is_null($form['file_id']); ?>) {
+                $("#extrafile").removeAttr('href');
+                $("#extrafile").click(function () {
+                    alert("没有附件！");
+                });
+            }
+        });
     $("#agree-btn").click(function () {
         var comment = $("#comment").val();
             var data={

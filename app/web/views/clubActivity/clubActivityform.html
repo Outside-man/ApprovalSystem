@@ -212,17 +212,22 @@
         <div class="approval-entry" id="club-load">
             下载
         </div>
-        <div class="approval-entry" id="club-loadfile">
+        <a id="extrafile" href="/approveForm/downloadFileId/file_id/<?php echo $form['file_id']; ?>"><div class="approval-entry" id="club-loadfile">
             附件
-        </div>
+        </div></a>
     </div>
-    <form class="approval-form" action="/index/login" method="post">
-        <p>意见</p><textarea id="comment" type="text"></textarea><br>
-        <button type="button"  id="agree-btn">同意</button>
-        <button type="button"  id="disgree-btn">否决</button>
-    </form>
 </div>
 <script type="text/javascript" src="<?php echo _STATIC_; ?>js/jquery.js"></script>
 <script type="text/javascript" src="<?php echo _STATIC_; ?>js/main.js"></script>
+<script type="text/javascript">
+    $(function () {
+       if(<?php echo is_null($form['file_id']); ?>) {
+            $("#extrafile").removeAttr('href');
+            $("#extrafile").click(function () {
+                alert("没有附件！");
+            });
+        }
+    });
+</script>
 </body>
 </html>
